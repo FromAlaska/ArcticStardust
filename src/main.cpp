@@ -4,6 +4,22 @@
 
 //#define GLfloat float
 
+void keyboard (unsigned char key, int x, int y)
+{
+    // we'll switch between red and blue when the user presses a key:
+    GLfloat colors[][3] = { { 1.0f, 0.0f, 2.0f}, {1.0f, 0.0f, 0.0f }, {1.0f, 1.0f, 0.0f } };
+    static int back;
+
+    switch (key) {
+    case 27: 
+        exit(0);
+    default:
+        back ^= 1;
+        glClearColor(colors[back][0], colors[back][1], colors[back][2], 1.0f);
+        glutPostRedisplay();
+    }
+}
+
 void displayMe(void)
 {
     GLfloat vertices[3][3] = {{0.0,0.0,0.0}, {25.0,50.0,0.0}, {50.0,0.0,0.0}};
@@ -41,6 +57,7 @@ int main(int argc, char** argv)
     glutInitWindowPosition(100, 100);
     glutCreateWindow("ArcticStardust");
     glutDisplayFunc(displayMe);
+    glutKeyboardFunc(keyboard);
     glutMainLoop();
     return 0;
 }
