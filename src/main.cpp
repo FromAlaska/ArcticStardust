@@ -4,8 +4,7 @@
 
 //#define GLfloat float
 
-void keyboard (unsigned char key, int x, int y)
-{
+void keyboard (unsigned char key, int x, int y) {
     // we'll switch between red and blue when the user presses a key:
     GLfloat colors[][3] = { { 1.0f, 0.0f, 2.0f}, {1.0f, 0.0f, 0.0f }, {1.0f, 1.0f, 0.0f } };
     static int back;
@@ -20,8 +19,7 @@ void keyboard (unsigned char key, int x, int y)
     }
 }
 
-void displayMe(void)
-{
+void displayMe(void) {
     GLfloat vertices[3][3] = {{0.0,0.0,0.0}, {25.0,50.0,0.0}, {50.0,0.0,0.0}};
 
     GLfloat p[3] = {7.5,5.0,0.0};
@@ -49,8 +47,7 @@ void displayMe(void)
     glFlush();
 }
  
-int main(int argc, char** argv)
-{
+int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_SINGLE);
     glutInitWindowSize(800, 500);
